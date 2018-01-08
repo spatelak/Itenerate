@@ -1,0 +1,26 @@
+{
+  "name": "node_demo",
+  "version": "1.0.0",
+  "description": "This is a node demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "hat": "0.0.3",
+    "moment": "^2.19.1",
+    "request": "^2.83.0",
+    "sqlite3": "^3.1.13",
+    "sqlite3-transactions": "0.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
+  }
+}

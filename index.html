@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script language="javascript" type="text/javascript" src="index.js"></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
+
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.47">
+
+  <style type="text/css">
+  	body, html {
+	    height: 100%;
+	    margin: 0;
+	}
+
+	.divInputs {
+	  	position: absolute;
+	  	margin: auto;
+	  	top: 0;
+	  	right: 0;
+	  	bottom: 0;
+	  	left: 0;
+	  	width: 1150px;
+	  	height: 80px;
+	  	background-color: rgba(255, 255, 255, 0.5);
+	}
+
+	.title {
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		height:85px;
+		opacity: 0.85;
+	}
+
+	.divBudget {
+		position:relative;     
+	    width:275px;
+	    height:80px;
+	    float:left;   
+	}
+
+	.lblBudget {
+		position: relative;
+		left: 50px;
+		top: 15px;
+		font-family:Sans-Serif;
+		color: #808080;
+	}
+
+	.txtBudget {
+		position: relative;
+		left: -10px;
+		top: 40px;
+		font-family:Sans-Serif;
+	}
+
+	.lblDollar {
+		position: absolute;
+		left: 35px;
+		top: 42px;
+		font-family:Sans-Serif;
+		font-weight: bold;
+	}
+
+	.divDeparture {
+		position:relative;     
+	    width:275px;
+	    height:80px;
+	    float: left;   
+	}
+
+	.lblDeparting {
+		position: relative;
+		left: 49px;
+		top: 18px;
+		font-family:Sans-Serif;
+		color: #808080;
+	}
+
+	.txtDeparture {
+		position: relative;
+		left: -30px;
+		top: 40px;
+		font-family:Sans-Serif;
+	}
+
+	.txtAirports {
+		position: absolute;
+		left: 47px;
+		top: 40px;
+		font-family:Sans-Serif;
+	}
+
+	.divStartDate {
+		position:relative;     
+	    width:275px;
+	    height:80px;
+	    float: left;   
+	}
+
+	.lblStartDate {
+		position: relative;
+		left: 50px;
+		top: 15px;
+		font-family:Sans-Serif;
+		color: #808080;
+	}
+
+	.txtStartDate {
+		position: relative;
+		left: -60px;
+		top: 40px;
+		font-family:Sans-Serif;
+	}
+
+	.divEndDate {
+		position:relative;     
+	    width:325px;
+	    height:80px;
+	    float: left;  
+	}
+
+	.lblEndDate {
+		position: relative;
+		left: 46px;
+		top: 15px;
+		font-family:Sans-Serif;
+		color: #808080;
+	}
+
+	.txtEndDate {
+		position: relative;
+		left: -37px;
+		top: 40px;
+		font-family:Sans-Serif;
+	}
+
+
+  </style>
+</head>
+
+<body onload="body_onload()">
+	<div id="itenerate">
+		<img src="imgs/bkng3.jpg" alt="Background Image" style="height: 100%; width: 100%; background-position: center;
+		    background-repeat: no-repeat; background-size: cover; opacity: 0.8">
+
+		<div class="title">
+			<h2 style="font-size: 45px; color: white;">ITINERATE</h2>
+		</div>
+
+		<div class="divInputs">
+			<div class="divBudget">
+				<label class="lblBudget">Budget*</label>
+				<input type="text" class="txtBudget" v-model="budget"/>
+				<label class="lblDollar">$</label>
+			</div>
+
+			<div class="divDeparture">
+				<label class="lblDeparting">Departing*</label>
+				
+				<div> {{listAirports}}
+					<input class="txtAirports" list="airports" name="airports" v-model="term">					
+					<datalist id="airports" style="width: 155px">
+				 		<option v-for="airport in airports">{{airport.value}}, {{airport.label}}</option>
+				 	</datalist>			 	
+				</div>
+
+				<div class="w3-xlarge"><i class="fa fa-plane" style="position: absolute; left: 20px; top: 42px;"></i></div>
+			</div>
+
+			<div class="divStartDate">
+				<label class="lblStartDate">Departure Date*</label>
+				<input type="date" class="txtStartDate" v-model="startDate" />
+				<span class="glyphicon glyphicon-calendar" style="position: absolute; left: 25px; top: 45px;"></span>
+			</div>
+
+			<div class="divEndDate">
+				<label class="lblEndDate">Arrival Date</label>
+				<input type="date" class="txtEndDate" v-model="endDate" />
+				<span class="glyphicon glyphicon-calendar" style="position: absolute; left: 25px; top: 45px;"></span>
+				<button class="btnGo" v-on:click="btnGo_click" style="position: absolute; top:16px; width: 80px; height: 50px; background-color: #008cba; color: white;">GO!</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
