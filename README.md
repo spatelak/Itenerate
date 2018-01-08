@@ -28,3 +28,5 @@ Open index.html in Chrome to test the website.
 * [Yelp API](https://www.yelp.com/fusion)
 * [SITA AIRPORT API](https://www.developer.aero/Airport-API/API-Overview)
 
+### To be Added
+* The webssite is under construction. Please come back soon to see detailed itineraries.
