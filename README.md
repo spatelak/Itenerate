@@ -5,7 +5,7 @@ Itinerate is a website that users can use to create itineriries. Itinerate creat
 * Users are recommended different locations to visit based on the above information provided.
 * Several APIs like Amadeus, Google Maps and Yelp APIs are used to create detailed itineraries that includes details about hotels, food, flight details, etc.
 
-### Prequisites
+### Prequisites and Use
 To run this project on your machine you need to install [Node.js](https://nodejs.org/en/) and need the following API keys:
 * [Amadeus API](https://sandbox.amadeus.com/api-catalog)
 * [Google Place API](https://developers.google.com/places/documentation/)
