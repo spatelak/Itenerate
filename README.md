@@ -1,5 +1,10 @@
 # Itinerate
 
+Itinerate is a website that users can use to create itineriries. Itinerate creates various itineraries for you to choose from when you simply provide your budget, departing airport, departure date and arrival date. The goal of this website is to make planning vacations easy and cost efficient.
+* User gives budget, departing location, departure and arrival dates.
+* Users are recommended different locations to visit based on the above information provided.
+* Several APIs like Amadeus, Google Maps and Yelp APIs are used to create detailed itineraries that includes details about hotels, food, flight details, etc.
+
 ### Prequisites
 To run this project on your machine you need to install [Node.js](https://nodejs.org/en/) and need the following API keys:
 * [Amadeus API](https://sandbox.amadeus.com/api-catalog)
