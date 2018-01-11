@@ -3,12 +3,17 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <script language="javascript" type="text/javascript" src="place.js"></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
+  
   <style type="text/css">
   	body, html {
 	    height: 100%;
@@ -58,32 +63,51 @@
 
 </head>
 
-<body background="bckg.png" style="height: 100%; width: 100%; background-position: center;
+<body onload="body_onload()" background="bckg.png" style="height: 100%; width: 100%; background-position: center;
         background-repeat: no-repeat; background-size: cover; opacity: 0.8">
-    <div class="placeName">
-      <h1 style="position:relative; top:28px;">Hello</h1>
-    </div>
+    
+    <div id="itinerary" class="wrapper">
+        <div class="placeName">
+          <h1 style="position:relative; top:28px;">{{city}}</h1>
+        </div>
 
-    <div class="flightDetails" >
-      <!--
-      <div class="left" style="width: 167px; height: 300px; ">
-        <h style="position: relative; left: 10px; top:7px; font-size: 18px; color: #808080;">Your Flight</h>
-      </div>
-      -->
-      <h style="position: relative; left: 30px; top: 140px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Flight! Come back soon :)</h>
-    </div>
+        <div class="flightDetails" >
+          
+          <div class="left" style="float: left; width: 175px; height: 300px;">
+            <p style="position: relative; left: 10px; top:9px; font-size: 18px; color: #808080;">Your Flight</p>
+            <label style="position: relative; left:15px; top:55px; font-size: 18px;">{{airline}}</label>
+            <label style="position: relative; left:10px; top:70px; font-size: 15px; color: #808080;">Departing: {{departing}}</label>
+            <label style="position: relative; left:11px; top:80px; font-size: 15px; color: #808080;">Returning: {{returning}}</label>
+            <label style="position: relative; left:13px; top:110px; font-size: 20px;">$ {{price}}</label>
+          </div>
 
-    <div class="hotelDetails">
-      <!--<h style="position: relative; left: 10px; top:7px; font-size: 18px; color: #808080;">Your Stay</h>-->
-      <h style="position: relative; left: 30px; top: 140px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Stay! Come back soon :)</h>
-    </div>
+          <div class="right" style="float: left; width: 325px; height: 300px;">
+            <label style="position: relative; top: 70px; left: 30px; font-size: 25px;">{{departure}}</label>
+            <label style="position: relative; top: 105px; left: -35px; font-size: 15px; color: #808080;">Terminal A</label>
+            <label style="position: relative; top: 140px; left: -105px; font-size: 15px; color: #808080;">3:00 PM</label>
 
-    <div class="itiDetails">
-      <!--<h style="position: relative; left: 10px; top:7px; font-size: 18px; color: #808080;">Itenary</h>-->
-      <h style="position: relative; left: 25px; top: 320px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Itenary! Come back soon :)</h>
-      <p style="height: 4000px"></p>
-    </div>
+            <i class="material-icons" style="position: relative; top: 130px; left: -57px; font-size:45px; transform: rotate(90deg);">flight</i>
 
+            <label style="position: relative; top: 68px; left: -20px; font-size: 25px;">{{destination}}</label>
+            <label style="position: relative; top: 76px; left: 217px; font-size: 15px; color: #808080;">Terminal 1</label>
+            <label style="position: relative; top: 110px; left: 150px; font-size: 15px; color: #808080;">7:30 PM</label>
+          </div>
+          <!--
+          <h style="position: relative; left: 30px; top: 140px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Flight! Come back soon :)</h>
+          -->
+        </div>
+
+        <div class="hotelDetails">
+          <!--<h style="position: relative; left: 10px; top:7px; font-size: 18px; color: #808080;">Your Stay</h>-->
+          <p style="position: relative; left: 30px; top: 140px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Stay! Come back soon :)</p>
+        </div>
+
+        <div class="itiDetails">
+          <!--<h style="position: relative; left: 10px; top:7px; font-size: 18px; color: #808080;">Itenary</h>-->
+          <p style="position: relative; left: 25px; top: 320px; align-content: center; font-size: 25px; color: grey; font-weight: solid;">Planning your Itenary! Come back soon :)</p>
+          <p style="height: 4000px"></p>
+        </div>
+    </div>
 </body>
 
 </html>
