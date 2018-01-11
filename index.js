@@ -32,7 +32,7 @@ function body_onload() {
 			    }).then(function(res) {
 			            if (res.ok) {
 			                res.json().then(function(data) {
-			                	//self.airports = data;			                	
+			                	self.airports = data;			                	
 			                });
 			            }
 			            else {
@@ -67,6 +67,8 @@ function body_onload() {
 		 		var day    = date1.getDate()  + 1;		 		
 		 		var depart = year+ "-" + (month < 10 ? '0' : '') + month + "-" + (day < 10 ? '0' : '') + day;
 
+		 		var iata = this.term.substring(0, 3);
+
 		 		// Get the places based on user input
 		 		fetch(encodeURI(url + "getDestinations" + "?origin=" + this.term.substring(0, 3) + "&duration=" + duration + "&max_price=" + this.budget + "&depart=" + depart), {
 		 			method: "GET",
@@ -80,7 +82,8 @@ function body_onload() {
 			                	
 			                	// Get the co-ordinates of the places
 			                	for (var i = 0; i < airports.length; i++) {
-			                		fetch(encodeURI(url + "getCoordinatesOfPlaces" + "?airport=" + airports[i].destination), {
+			                		var obj = self.airports[i];
+			                		fetch(encodeURI(url + "getCoordinatesOfPlaces" + "?airport=" + obj.destination + "&ind=" + i), {
 							 			method: "GET",
 								        headers: {
 								            'content-type': 'application/json'
@@ -88,7 +91,16 @@ function body_onload() {
 								    }).then(function(res) {
 			                			if (res.ok) {
 			                				res.json().then(function(data) {
-			                					if (data.length != 0) gPlaces.push(JSON.stringify(data));
+			                					if (data.length != 0) {
+			                						data.airline     = airports[data.ind].airline;
+											 		data.departing   = airports[data.ind].departure_date;
+											 		data.returning   = airports[data.ind].return_date;
+											 		data.price       = parseInt(airports[data.ind].price);
+											 		data.destination = airports[data.ind].destination;
+			                						data.departure   = iata;
+			                						data.index       = gPlaces.length;
+			                						gPlaces.push(JSON.stringify(data));
+			                					}
 			                					if (gPlaces.length === airports.length) { 
 			                						localStorage.setItem("places", JSON.stringify(gPlaces)); 
 			                						window.location.href = "./maps/maps.html";

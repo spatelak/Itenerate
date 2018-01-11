@@ -22,12 +22,12 @@ app.get('/', function(req, res) {
 
 // Get ariports API
 app.get('/getDestinations', function(req, res) {
-	var props       = new Object();
-	props.origin    = req.query.origin;
-	props.departure = req.query.depart;
-	props.duration  = req.query.duration;
-	props.max_price = req.query.max_price;
-	props.apikey    = "";
+	var props            = new Object();
+	props.origin         = req.query.origin;
+	props.departure_date = req.query.depart;
+	props.duration       = req.query.duration;
+	props.max_price      = req.query.max_price;
+	props.apikey         = "";
 
 	var totalBudget = props.max_price;
 	props.max_price -= props.duration * 51; 
@@ -75,7 +75,9 @@ app.get('/getCoordinatesofPlaces', function(req, res) {
 		}
 		else {
 			//console.log(data);
-			res.send(JSON.stringify(data));
+			var json = data;
+			json.ind = req.query.ind;
+			res.send(JSON.stringify(json));
 		}
 		//console.log(listOfPlaces);
 	});		
