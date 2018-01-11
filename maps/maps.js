@@ -12,7 +12,7 @@ function initMap() {
     var gPlaces = JSON.parse(localStorage.getItem("places"));
     for (var i = 0; i < gPlaces.length; i++) {
         var obj = JSON.parse(gPlaces[i]);
-        popup = new Popup(new google.maps.LatLng(parseFloat(obj.lat), parseFloat(obj.lng)), obj.city);
+        popup = new Popup(new google.maps.LatLng(parseFloat(obj.lat), parseFloat(obj.lng)), obj.city, obj.index);
         popup.setMap(map);
       
     }
@@ -27,13 +27,13 @@ function definePopupClass() {
    * @constructor
    * @extends {google.maps.OverlayView}
    */
-  Popup = function(position, city) {
+  Popup = function(position, city, index) {
     this.position = position;
 
     //if (content.classList.contains('popup-bubble-content') == false) content.classList.add('popup-bubble-content');
     var aTag = document.createElement('a');
     aTag.classList.add('popup-bubble-link')
-    aTag.setAttribute('href',"../place/place.html");
+    aTag.setAttribute('href',"../place/place.html?index=" + index);
     aTag.innerHTML = city;
 
     var content = document.createElement('div');
